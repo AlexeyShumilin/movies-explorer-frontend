@@ -2,5 +2,10 @@
   "rules": {
     "react/prop-types": 0
   },
-  "extends": ["react-app", "airbnb-base", "airbnb/rules/react", "prettier"]
+  "extends": [
+    "react-app",
+    "airbnb-base",
+    "airbnb/rules/react",
+    "prettier"
+  ]
 }

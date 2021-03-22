@@ -2,7 +2,6 @@ import React from "react";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
 
-
 function Navigation() {
   return (
     <nav className="navigation">
@@ -12,7 +11,7 @@ function Navigation() {
             Фильмы
           </Link>
         </li>
-        <li className="navigation__list-item"> 
+        <li className="navigation__list-item">
           <Link className="navigation__saved-movies" to="/saved-movies">
             Сохранённые фильмы
           </Link>

@@ -12,9 +12,7 @@
 .about-me__title {
   margin: 0;
   padding-bottom: 23px;
-
   border-bottom: solid 1px #000;
-
   color: #000;
   font-size: 22px;
   font-weight: 400;
@@ -30,7 +28,6 @@
 .about-me__name {
   margin: 66px 0 0;
   max-width: 600px;
-
   color: #000;
   font-size: 50px;
   font-weight: 400;
@@ -40,7 +37,6 @@
 .about-me__profession {
   margin: 18px 0 26px;
   max-width: 600px;
-
   color: #000;
   font-size: 18px;
   font-weight: 500;
@@ -50,7 +46,6 @@
 .about-me__text {
   margin: 0;
   max-width: 600px;
-
   color: #000;
   font-size: 14px;
   font-weight: 400;

@@ -2,6 +2,7 @@
   padding: 0 70px 75px;
   background-color: #5c5c5c;
 }
+
 .promo__container {
   max-width: 1280px;
   display: flex;
@@ -20,10 +21,11 @@
   margin: 0 0 36px;
 
   color: #fff;
-  font-size: 51px; /* В макете 50px, но тогда слово Веб-разработки некрасиво переносится*/
+  font-size: 52px;
   font-weight: 400;
   line-height: 58px;
 }
+
 .promo__subtitle {
   max-width: 310px;
   margin: 0;
@@ -34,14 +36,13 @@
   line-height: 16px;
   opacity: 0.5;
 }
+
 .promo__img {
   width: 310px;
   height: 304px;
   background-size: cover;
   background-image: url("../../images/web-planet.svg");
 }
-
-/* Media */
 
 @media screen and (max-width: 1280px) {
   .promo {

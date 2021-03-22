@@ -1,6 +1,5 @@
 import React from "react";
-import photo from "../../images/student-photo.jpg";
-import Portfolio from "../Portfolio/Portfolio";
+import photo from "../../images/student_pic.jpg";
 
 import "./AboutMe.css";
 
@@ -12,22 +11,22 @@ function AboutMe() {
         <div className="about-me__wrap">
           <div className="about-me__description">
             <div className="about-me__description">
-              <h3 className="about-me__name">Максим</h3>
-              <p className="about-me__profession">
-                Фронтенд-разработчик, 23 года
-              </p>
+              <h3 className="about-me__name">Алексей</h3>
+              <p className="about-me__profession">Фронтенд-разработчик</p>
               <p className="about-me__text">
-                Я живу в городе Москва, с 2018 года по 2020 работал в должности
-                QA Engineer. Работал как в продуктовых, так и в аутсорс
-                командах. После этого решил развиваться в направлении Фронтенд
-                разработки. Интересуюсь программированием, решением задач и
-                изучением новых технологий.
+                Я занимаюсь изучением этой обширной и быстро развивающейся
+                отрасли сравнительно недавно и, каждый день для меня начинается
+                с открытия чего-то нового. Таким образом, я повышаю свои
+                профессиональные навыки и качество выполненных мною проектов. За
+                время учебы, мною успешно выполнено несколько проектов по
+                разработке веб приложений. Ниже предоставленные ссылки на
+                значимые для меня работы.
               </p>
             </div>
-            <div className="about-me__links">
+            <nav className="about-me__links">
               <a
                 className="about-me__link"
-                href="https://www.linkedin.com/in/maksim-pozharskiy-72915a155/"
+                href="https://www.linkedin.com/in/alexey-shumilin-340088ba/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -35,17 +34,16 @@ function AboutMe() {
               </a>
               <a
                 className="about-me__link"
-                href="https://github.com/MaksimPozharskiy"
+                href="https://github.com/AlexeyShumilin"
                 target="_blank"
                 rel="noreferrer"
               >
                 GitHub
               </a>
-            </div>
+            </nav>
           </div>
-          <img className="about-me__photo" src={photo} alt="Фото студента" />
+          <img className="about-me__photo" src={photo} alt="Мое Фото" />
         </div>
-        <Portfolio />
       </div>
     </section>
   );

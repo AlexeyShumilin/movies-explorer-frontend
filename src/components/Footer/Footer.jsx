@@ -25,7 +25,7 @@ function Footer() {
               <li className="footer__links-item">
                 <a
                   className="footer__link"
-                  href="https://github.com/MaksimPozharskiy"
+                  href="https://github.com/AlexeyShumilin"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -35,7 +35,7 @@ function Footer() {
               <li className="footer__links-item">
                 <a
                   className="footer__link"
-                  href="https://www.linkedin.com/in/maksim-pozharskiy-72915a155/"
+                  href="https://www.linkedin.com/in/alexey-shumilin-340088ba/"
                   target="_blank"
                   rel="noreferrer"
                 >

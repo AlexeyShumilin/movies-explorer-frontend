@@ -12,9 +12,7 @@
 .about__title {
   margin: 0;
   padding-bottom: 23px;
-
   border-bottom: solid 1px #000;
-
   color: #000;
   font-size: 22px;
   font-weight: 400;
@@ -26,7 +24,7 @@
   justify-content: space-between;
 }
 
-.about__duration-container{
+.about__duration-container {
   display: flex;
   justify-content: space-between;
 }
@@ -38,7 +36,6 @@
 
 .about__text-title {
   margin: 0 0 26px;
-
   color: #000;
   font-size: 20px;
   font-weight: 400;
@@ -47,7 +44,6 @@
 
 .about__text-subtitle {
   margin: 0;
-
   color: #000;
   font-size: 14px;
   font-weight: 400;
@@ -119,7 +115,7 @@
     width: 300px;
     margin: 70px 0 93px;
   }
-  
+
   .about__text-wrap {
     width: 284px;
     margin: 0 0 56px;
@@ -143,14 +139,12 @@
   .about__container {
     padding: 70px 0 70px;
   }
-  
+
   .about__title {
     font-size: 18px;
     line-height: 22px;
     padding-bottom: 28px;
   }
-
-
 
   .about__text-title {
     font-size: 18px;
@@ -164,7 +158,7 @@
   }
 
   .about__duration {
-    padding: 11px 10px;
+    padding: 10px 10px;
     font-size: 11px;
     line-height: 13px;
   }
