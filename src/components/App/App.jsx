@@ -15,11 +15,16 @@ function App() {
           <Main />
           <Footer />
         </Route>
-          <Route path="/movies" exact>
-              <Header bgColor="light" textColor="black" />
-              <Movies />
-              <Footer />
-          </Route>
+        <Route path="/movies" exact>
+          <Header bgColor="light" textColor="black" />
+          <Movies />
+          <Footer />
+        </Route>
+        <Route path="/saved-movies" exact>
+          <Header bgColor="light" textColor="black" />
+          <Movies />
+          <Footer />
+        </Route>
       </Switch>
     </div>
   );
