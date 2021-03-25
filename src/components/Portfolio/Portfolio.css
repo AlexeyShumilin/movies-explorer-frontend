@@ -56,7 +56,6 @@
     font-size: 28px;
     line-height: 50px;
   }
-
 }
 
 @media screen and (max-width: 768px) {
@@ -73,5 +72,4 @@
 }
 
 @media screen and (max-width: 576px) {
-
 }
