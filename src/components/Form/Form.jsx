@@ -32,7 +32,7 @@ function Form({ submitText, children }) {
         {submitText.buttonText}
       </button>
       <p className="form__prompt">
-        {`${submitText.promt} `}
+        {`${submitText.prompt} `}
         <Link className="form__link" to={submitText.route}>
           {submitText.linkText}
         </Link>
