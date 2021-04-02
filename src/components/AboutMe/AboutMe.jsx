@@ -42,7 +42,7 @@ function AboutMe() {
               </a>
             </nav>
           </div>
-          <img className="about-me__photo" src={photo} alt="Мое Фото" />
+          <img className="about-me__photo" src={photo} alt="Фото" />
         </div>
         <Portfolio />
       </div>

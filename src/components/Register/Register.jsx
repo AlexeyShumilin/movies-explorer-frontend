@@ -1,6 +1,6 @@
 import React from "react";
 import "./Register.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Form from "../Form/Form";
 import logo from "../../images/logo_header.svg";
 
