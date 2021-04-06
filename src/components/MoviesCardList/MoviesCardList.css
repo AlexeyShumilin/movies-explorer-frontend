@@ -56,6 +56,14 @@
   display: block;
 }
 
+.movies__not-found_hidden {
+  display: none;
+}
+
+.movies__button_hidden {
+  display: none;
+}
+
 @media screen and (max-width: 1280px) {
 }
 

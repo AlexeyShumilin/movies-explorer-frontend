@@ -56,6 +56,10 @@
   transition: linear 0.4s;
 }
 
+.form__button:disabled {
+  opacity: 0.5;
+}
+
 .form__button:hover {
   transform: scale(1.1);
 }
