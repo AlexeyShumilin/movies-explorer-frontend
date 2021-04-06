@@ -10,7 +10,7 @@ class MainApi {
     }).then((response) => this._checkRequestResult(response));
   }
 
-  setInfo(name, email) {
+  /* setInfo(name, email) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -20,6 +20,7 @@ class MainApi {
       }),
     }).then((response) => this._checkRequestResult(response));
   }
+  */
 
   logout() {
     return fetch(`${this._baseUrl}/signout `, {
@@ -104,9 +105,10 @@ class MainApi {
     return Promise.reject(new Error(`Error: ${response.status}`));
   }
 
-  errorHandler(error) {
+  /* errorHandler(error) {
     console.log(error);
   }
+  */
 }
 
 const mainApi = new MainApi({

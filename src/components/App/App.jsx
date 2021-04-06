@@ -11,14 +11,51 @@ import Movies from "../Movies/Movies";
 import Profile from "../Profile/Profile";
 import Register from "../Register/Register";
 import NotFound from "../NotFound/NotFound";
+import CurrentUserContext from "../../context/CurrentUserContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const history = useHistory();
   const [registrationError, setRegisteredError] = React.useState(false);
   const [loginError, setLoginError] = React.useState(false);
   const [isLogin, setIsLogin] = React.useState(false);
+  const [currentUser, setCurrentUser] = React.useState({});
 
-  const handleLogin = (email, password) => {
+  function isLoggedInCheck() {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      MainApi.getInfo()
+        .then((userInfo) => {
+          if (userInfo) {
+            setCurrentUser(userInfo.data);
+            setIsLogin(true);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
+
+  React.useEffect(() => {
+    isLoggedInCheck();
+  }, []);
+
+  React.useEffect(() => {
+    if (isLogin) {
+      MainApi.getInfo()
+        .then((userInfo) => {
+          if (userInfo) {
+            setCurrentUser(userInfo.data);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
+
+  function handleLogin(email, password) {
     MainApi.login(email, password)
       .then((data) => {
         if (data) {
@@ -30,7 +67,13 @@ function App() {
         setLoginError(true);
         console.log(err);
       });
-  };
+  }
+
+  function handleLogout() {
+    history.push("/");
+    setIsLogin(false);
+    localStorage.clear();
+  }
 
   function handleRegister(email, password, name) {
     MainApi.register(email, password, name)
@@ -47,40 +90,57 @@ function App() {
 
   return (
     <div className="page">
-      <Switch>
-        <Route path="/" exact>
-          <Header bgColor="dark" textColor="white" isLogin={isLogin} />
-          <Main />
-          <Footer />
-        </Route>
-        <Route path="/movies" exact>
-          <Header bgColor="light" textColor="black" isLogin={isLogin} />
-          <Movies />
-          <Footer />
-        </Route>
-        <Route path="/saved-movies" exact>
-          <Header bgColor="light" textColor="black" isLogin={isLogin} />
-          <Movies />
-          <Footer />
-        </Route>
-        <Route path="/profile" exact>
-          <Header bgColor="light" textColor="black" isLogin={isLogin} />
-          <Profile />
-        </Route>
-        <Route path="/signin" exact>
-          <Login handleLogin={handleLogin} loginError={loginError} />
-        </Route>
-        <Route path="/signup" exact>
-          <Register
-            handleRegister={handleRegister}
-            registrationError={registrationError}
-          />
-          <Register />
-        </Route>
-        <Route path="*">
-          <NotFound />
-        </Route>
-      </Switch>
+      <CurrentUserContext.Provider value={currentUser}>
+        <Switch>
+          <Route path="/" exact>
+            <Header bgColor="dark" textColor="white" isLogin={isLogin} />
+            <Main />
+            <Footer />
+          </Route>
+          {isLogin && (
+            <ProtectedRoute
+              path="/movies"
+              exact
+              component={Movies}
+              isLogin={isLogin}
+              currentUser={currentUser}
+            />
+          )}
+          {isLogin && (
+            <ProtectedRoute
+              path="/saved-movies"
+              exact
+              component={Movies}
+              isLogin={isLogin}
+              currentUser={currentUser}
+            />
+          )}
+          {isLogin && (
+            <ProtectedRoute
+              path="/profile"
+              exact
+              component={Profile}
+              handleLogout={handleLogout}
+              isLogin={isLogin}
+              currentUser={currentUser}
+            />
+          )}
+          <Route path="/signin" exact>
+            <Login handleLogin={handleLogin} loginError={loginError} />
+          </Route>
+          <Route path="/signup" exact>
+            <Register
+              handleRegister={handleRegister}
+              registrationError={registrationError}
+            />
+          </Route>
+          {isLogin && (
+            <Route path="*">
+              <NotFound />
+            </Route>
+          )}
+        </Switch>
+      </CurrentUserContext.Provider>
     </div>
   );
 }

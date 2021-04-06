@@ -67,6 +67,10 @@
   line-height: 15px;
 }
 
+.profile__btn-edit:disabled {
+  opacity: 0.5;
+}
+
 .profile__btn-logout {
   border: none;
   background-color: #fff;

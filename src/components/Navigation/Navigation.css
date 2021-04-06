@@ -9,6 +9,10 @@
   list-style: none;
 }
 
+.navigation__movies_color_white {
+  color: #fff;
+}
+
 .navigation__movies {
   margin-left: 44px;
 
