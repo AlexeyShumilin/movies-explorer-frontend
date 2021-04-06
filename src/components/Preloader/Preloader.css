@@ -55,6 +55,10 @@
   position: relative;
 }
 
+.preloader_active {
+  display: flex;
+}
+
 .preloader__round {
   width: 100px;
   height: 100px;
