@@ -1,7 +1,7 @@
 import React from "react";
 import "./Profile.css";
-import CallbackValidation from "../../helpers/CallbackValidation";
 import CurrentUserContext from "../../context/CurrentUserContext";
+import CallbackValidation from "../../helpers/CallbackValidation";
 import Header from "../Header/Header";
 
 function Profile({

@@ -6,8 +6,8 @@ function Form({
   formName,
   submitText,
   children,
-  registrationError,
   submitHandle,
+  registrationError,
   validation,
 }) {
   const {
@@ -46,7 +46,7 @@ function Form({
         name="password"
         className={`form__input ${errors.password && "form__input-error"}`}
         minLength="2"
-        type="text"
+        type="password"
         value={values.password || ""}
         onFocus={onFocus}
         onChange={handleChange}
@@ -59,7 +59,7 @@ function Form({
         <p className="form__input-error">Произошла ошибка при регистрации</p>
       )}
       <p className="form__prompt">
-        {`${submitText.promt} `}
+        {`${submitText.prompt} `}
         <Link className="form__link" to={submitText.route}>
           {submitText.linkText}
         </Link>

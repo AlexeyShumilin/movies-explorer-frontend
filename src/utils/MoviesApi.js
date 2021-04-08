@@ -4,6 +4,7 @@ class MoviesApi {
     this._headers = headers;
   }
 
+  // Получить фильмы
   getMovies() {
     return fetch(`${this._baseUrl}`, {
       headers: this._headers,
@@ -14,11 +15,7 @@ class MoviesApi {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`Error: ${response.status}`));
-  }
-
-  errorHandler(error) {
-    console.log(error);
+    return Promise.reject(new Error(`Возникла ошибка: ${response.status}`));
   }
 }
 

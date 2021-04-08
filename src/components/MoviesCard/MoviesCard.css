@@ -3,13 +3,12 @@
   list-style: none;
 }
 
-.card__image {
-  width: 360px;
-  height: 200px;
-}
-
 .card__wrap {
   position: relative;
+}
+
+.card__trailer-link {
+  z-index: 1;
 }
 
 .card__icon {
@@ -19,6 +18,7 @@
   top: 14px;
   transition: linear 0.4s;
   cursor: pointer;
+  z-index: 2;
 }
 
 .card:hover .card__icon {
@@ -29,6 +29,11 @@
   transform: scale(1.2);
 }
 
+.card__image {
+  width: 360px;
+  height: 200px;
+}
+
 .card__description {
   margin: 14px 14px 0;
   display: flex;
@@ -36,18 +41,18 @@
 }
 
 .card__name {
+  flex-basis: 250px;
   margin: 0;
   color: #000;
   font-size: 13px;
   font-weight: 500;
   line-height: 16px;
-  flex-basis: 250px;
 }
 
 .card__duration {
-  align-self: flex-start;
   box-sizing: border-box;
   margin: 0;
+  align-self: flex-start;
   background-color: #f9f9f9;
   border: solid 1px #f9f9f9;
   border-radius: 3px;

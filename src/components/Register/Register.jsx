@@ -32,7 +32,7 @@ function Register({ handleRegister, registrationError }) {
         <Form
           submitText={{
             buttonText: "Зарегистрироваться",
-            promt: "Уже зарегистрированы?",
+            prompt: "Уже зарегистрированы?",
             route: "/signin",
             linkText: "Войти",
           }}

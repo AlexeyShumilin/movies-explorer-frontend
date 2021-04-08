@@ -20,9 +20,9 @@ function MoviesCard({
   const [isAddedCard, setIsAddedCard] = React.useState(false);
 
   const { pathname } = useLocation();
-  // If the movie is added to favorites
+  // Если фильм добавлен в избранное
   const moviesIcon = isAddedCard ? moviesIconCard : saveCardIcon;
-  // If on the general search page, then show the icon defined on the line above, if not, then the delete icon
+  // Если на странице общего поиска, то берем иконку определенную на строчке выше, если нет, то иконку удаления
   const cardIcon = pathname === "/movies" ? moviesIcon : moviesSavedCardIcon;
 
   function hadleLikeMovie() {

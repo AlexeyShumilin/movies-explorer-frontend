@@ -2,23 +2,25 @@ function validation(name, value) {
   let errors = {};
   if (name === "email") {
     if (!value) {
-      errors = { [name]: "" };
+      errors = { [name]: "Емейл обязателен" };
     } else if (!/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(value)) {
-      errors = { [name]: "Email is required" };
+      errors = { [name]: "Введите емейл" };
     }
   }
   if (name === "password") {
     if (!value) {
-      errors = { [name]: "Password is required" };
+      errors = { [name]: "Пароль обязателен" };
     }
   }
   if (name === "name") {
     if (!value) {
-      errors = { [name]: "Name is required " };
+      errors = { [name]: "Имя обязательно" };
     } else if (!/^[a-zA-Z\s-]+$/.test(value)) {
-      errors = { [name]: "The name can only contain latin, space or hyphen" };
+      errors = {
+        [name]: "Имя может содержать только латинские буквы, пробел или дефис",
+      };
     } else if (value.length < 1) {
-      errors = { [name]: "The name must be at least 2 characters long" };
+      errors = { [name]: "Имя не должно быть короче 2 символов" };
     }
   }
 

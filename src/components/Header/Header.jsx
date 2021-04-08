@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import "./Header.css";
-import logo from "../../images/header-logo.svg";
+import logo from "../../images/logo_header.svg";
 
 function Header({ bgColor, textColor }) {
   const jwt = localStorage.getItem("jwt");
@@ -20,15 +20,15 @@ function Header({ bgColor, textColor }) {
       <div className="header__container">
         <div className="header__wrapper">
           <Link to="/">
-            <img className="header__logo" src={logo} alt="Логотип" />
+            <img className="header__logo" src={logo} alt="Лого" />
           </Link>
-          {pathname === "/" && !jwt ? "" : <Navigation />}
         </div>
         <div
           className={`header__wrapper ${
             pathname === "/" && !jwt ? "" : "header__wrapper_burger"
           }`}
         >
+          {pathname === "/" && !jwt ? "" : <Navigation />}
           <Link
             className={`header__sign-text header__sign-text_color_${textColor} `}
             to={`${pathname === "/" && !jwt ? "/signup" : "/profile"}`}

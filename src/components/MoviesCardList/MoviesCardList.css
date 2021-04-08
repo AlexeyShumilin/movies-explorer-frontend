@@ -1,8 +1,8 @@
 .movies {
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  visibility: hidden;
   padding: 0 61px 0;
   background-color: #fff;
 }
@@ -28,8 +28,8 @@
   max-width: 320px;
   width: 100%;
   height: 36px;
-  margin-bottom: 80px;
-  margin-top: 50px;
+  margin: 80px 0;
+
   align-self: center;
   background-color: #fff;
   border: solid 2px #e8e8e8;
@@ -50,10 +50,6 @@
 
 .movies__not-found {
   margin: 0 0 40px;
-}
-
-.movies__not-found_visibility {
-  display: block;
 }
 
 .movies__not-found_hidden {

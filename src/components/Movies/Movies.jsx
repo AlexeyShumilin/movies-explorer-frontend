@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import "./Movies.css";
 import { useLocation } from "react-router-dom";
 import SearchForm from "../SearchForm/SearchForm";
 import Preloader from "../Preloader/Preloader";
@@ -9,13 +8,12 @@ import MoviesApi from "../../utils/MoviesApi";
 import MainApi from "../../utils/MainApi";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import shortMoviesHandle from "../../helpers/shortMovies";
 
 function Movies({ isLogin }) {
   const { pathname } = useLocation();
-  const [movies, setMoviesList] = React.useState([]);
-  const [renderedFilms, setRenderedFilms] = React.useState([]);
-  const [countClickMoreFilms, setCountClickMoreFilms] = React.useState(1);
+  const [movies, setMoviesList] = React.useState([]); // Стейт с найденными по ключевому слову фильмами
+  const [renderedFilms, setRenderedFilms] = React.useState([]); // Отрисованные карточки
+  const [countClickMoreFilms, setCountClickMoreFilms] = React.useState(1); // Счетчик нажатий кнопки "еще"
   const [searchValue, setSearchValue] = React.useState("");
   const [inputError, setInputError] = React.useState("");
   const [visibilityMoviesList, setVisibilityMoviesList] = React.useState("");
@@ -25,6 +23,10 @@ function Movies({ isLogin }) {
     "movies__button_hidden"
   );
   const [isShortFilms, setIsShortFilms] = React.useState(false);
+  import {
+    screenSizeDefinition,
+    screenCoefficient,
+  } from "../../utils/ScreenDefinition";
 
   React.useEffect(() => {
     MainApi.getSavedMovies()
@@ -42,23 +44,15 @@ function Movies({ isLogin }) {
     }
   }, []);
 
+  function shortMoviesHandle() {
+    return movies.filter((movie) => movie.duration <= 40);
+  }
+
   function filterMovies(films) {
     if (isShortFilms) {
       return shortMoviesHandle(films);
     }
     return films.filter((movie) => movie.duration >= 40);
-  }
-
-  function definitionSizeScreen() {
-    return document.documentElement.clientWidth;
-  }
-
-  function coefficientScreen() {
-    const width = definitionSizeScreen();
-    if (width >= 1280) {
-      return 3;
-    }
-    return 2;
   }
 
   const filteredMovies = React.useMemo(() => filterMovies(movies), [
@@ -81,7 +75,7 @@ function Movies({ isLogin }) {
   }, [filteredMovies, filteredRenderedMovies]);
 
   function countInitCards() {
-    const width = definitionSizeScreen();
+    const width = screenSizeDefinition();
     if (width >= 1280) {
       return 12;
     }
@@ -95,12 +89,11 @@ function Movies({ isLogin }) {
     const cards = countInitCards();
 
     setRenderedFilms(
-      filteredMovies.slice(0, cards + countClickMoreFilms * coefficientScreen())
+      filteredMovies.slice(0, cards + countClickMoreFilms * screenCoefficient())
     );
     setCountClickMoreFilms(countClickMoreFilms + 1);
   }
 
-  // Filter movies by keyword
   function filterMoviesFromLS(moviesList) {
     const films = moviesList.filter((movie) =>
       movie.nameRU.includes(searchValue)
@@ -112,17 +105,17 @@ function Movies({ isLogin }) {
     });
   }
 
-  //get films by keyword by clicking on Search
   function handleSearch(evt) {
     evt.preventDefault();
     if (searchValue === "") {
       setInputError("Нужно ввести ключевое слово");
       return;
     }
-    // show preloader, hide movies
+
     setIsPreloaderOpen("preloader_active");
     setVisibilityMoviesList("");
     if (pathname === "/movies") {
+      // Если в localStorage нет фильмов, запросить их
       if (!localStorage.getItem("moviesList")) {
         MoviesApi.getMovies()
           .then((moviesList) => {

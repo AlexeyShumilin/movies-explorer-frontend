@@ -1,7 +1,7 @@
 .navigation__list {
   display: flex;
   column-gap: 16px;
-  padding: 0;
+  padding-right: 50px;
   margin: 0;
 }
 
@@ -9,13 +9,8 @@
   list-style: none;
 }
 
-.navigation__movies_color_white {
-  color: #fff;
-}
-
 .navigation__movies {
   margin-left: 44px;
-
   color: #000;
   font-size: 13px;
   font-weight: 500;
@@ -36,6 +31,10 @@
   line-height: 18px;
   text-decoration: none;
   transition: opacity linear 0.5s;
+}
+
+.navigation__movies_color_white {
+  color: #fff;
 }
 
 .navigation__saved-movies:hover {

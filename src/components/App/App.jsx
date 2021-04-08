@@ -1,25 +1,26 @@
 import React from "react";
-
 import { Route, Switch, useHistory } from "react-router-dom";
 import Header from "../Header/Header";
-import Main from "../Main/Main";
-import MainApi from "../../utils/MainApi";
-import Footer from "../Footer/Footer";
-import Login from "../Login/Login";
 import "./App.css";
+import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
+import Footer from "../Footer/Footer";
 import Profile from "../Profile/Profile";
+import Login from "../Login/Login";
+import MainApi from "../../utils/MainApi";
 import Register from "../Register/Register";
-import NotFound from "../NotFound/NotFound";
 import CurrentUserContext from "../../context/CurrentUserContext";
+import NotFound from "../NotFound/NotFound";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const history = useHistory();
+  const [currentUser, setCurrentUser] = React.useState({});
   const [registrationError, setRegisteredError] = React.useState(false);
   const [loginError, setLoginError] = React.useState(false);
   const [isLogin, setIsLogin] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState({});
+  const [isEditError, setIsEditError] = React.useState(false);
+  const [isEditDone, setIsEditDone] = React.useState(false);
 
   function isLoggedInCheck() {
     const jwt = localStorage.getItem("jwt");
@@ -69,12 +70,6 @@ function App() {
       });
   }
 
-  function handleLogout() {
-    history.push("/");
-    setIsLogin(false);
-    localStorage.clear();
-  }
-
   function handleRegister(email, password, name) {
     MainApi.register(email, password, name)
       .then((data) => {
@@ -86,6 +81,27 @@ function App() {
       .catch(() => {
         setRegisteredError(true);
       });
+  }
+
+  function editProfile(name, email) {
+    MainApi.setInfo(name, email)
+      .then((info) => {
+        setCurrentUser(info);
+        setIsEditDone(true);
+        setIsEditError(false);
+        setTimeout(() => {
+          setIsEditDone(false);
+        }, 4000);
+      })
+      .catch(() => {
+        setIsEditError(true);
+      });
+  }
+
+  function handleLogout() {
+    history.push("/");
+    setIsLogin(false);
+    localStorage.clear();
   }
 
   return (
@@ -121,8 +137,11 @@ function App() {
               exact
               component={Profile}
               handleLogout={handleLogout}
+              editProfile={editProfile}
               isLogin={isLogin}
               currentUser={currentUser}
+              isEditError={isEditError}
+              isEditDone={isEditDone}
             />
           )}
           <Route path="/signin" exact>

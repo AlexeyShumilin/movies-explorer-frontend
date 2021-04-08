@@ -10,7 +10,7 @@ class MainApi {
     }).then((response) => this._checkRequestResult(response));
   }
 
-  /* setInfo(name, email) {
+  setInfo(name, email) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -20,7 +20,6 @@ class MainApi {
       }),
     }).then((response) => this._checkRequestResult(response));
   }
-  */
 
   logout() {
     return fetch(`${this._baseUrl}/signout `, {
@@ -54,7 +53,7 @@ class MainApi {
           this.updateHeaders();
           return data.token;
         }
-        return Promise.reject(new Error(`Error ${data.status}`));
+        return Promise.reject(new Error(`Возникла ошибка: ${data.status}`));
       });
   }
 
@@ -102,18 +101,13 @@ class MainApi {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`Error: ${response.status}`));
+    return Promise.reject(new Error(`Возникла ошибка: ${response.status}`));
   }
-
-  /* errorHandler(error) {
-    console.log(error);
-  }
-  */
 }
 
 const mainApi = new MainApi({
-  //baseUrl: 'https://api....,
-  baseUrl: "http://localhost:3001",
+  // baseUrl: 'https://api',
+  baseUrl: "http://localhost:3000",
   headers: {
     "Content-Type": "application/json",
     Authorization: `${localStorage.getItem("jwt")}`,
