@@ -24,7 +24,7 @@ function MoviesCardList({
   const [visibilityNotFound, setVisibilityNotFound] = React.useState('')
 
   React.useEffect(() => {
-    // Определяем сколько фильмов нужно отрисовать в зависимости от ширины экрана
+
     const cards = countInitCards();
 
     if (pathname === "/saved-movies") {
@@ -50,7 +50,6 @@ function MoviesCardList({
     const minutes = durationMinutes % 60;
         return `${hours}ч ${minutes}м`;
   }
-
 
   return (
     <section className={`movies ${visibilityMoviesList}`}>

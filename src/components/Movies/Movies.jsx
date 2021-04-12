@@ -68,12 +68,6 @@ function Movies({ isLogin }) {
     savedMovies,
   ]);
 
-  React.useEffect(() => {
-    if (filteredMovies.length >= filteredRenderedMovies.length) {
-      setVisibilityBtnYet("movies__button_hidden");
-    }
-  }, [filteredMovies, filteredRenderedMovies]);
-
   function countInitCards() {
     const width = screenSizeDefinition();
     if (width >= 1280) {
@@ -114,6 +108,7 @@ function Movies({ isLogin }) {
     setIsPreloaderOpen("preloader_active");
     setVisibilityMoviesList("");
     if (pathname === "/movies") {
+      // Если в localStorage нет фильмов, запросить их
       if (!localStorage.getItem("moviesList")) {
         MoviesApi.getMovies()
           .then((moviesList) => {
