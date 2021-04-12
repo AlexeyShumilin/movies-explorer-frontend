@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.card__trailer-link {
+  z-index: 1;
+}
+
 .card__icon {
   display: none;
   position: absolute;
@@ -14,6 +18,7 @@
   top: 14px;
   transition: linear 0.4s;
   cursor: pointer;
+  z-index: 2;
 }
 
 .card:hover .card__icon {
@@ -24,6 +29,11 @@
   transform: scale(1.2);
 }
 
+.card__image {
+  width: 360px;
+  height: 200px;
+}
+
 .card__description {
   margin: 14px 14px 0;
   display: flex;
@@ -31,8 +41,8 @@
 }
 
 .card__name {
+  flex-basis: 250px;
   margin: 0;
-
   color: #000;
   font-size: 13px;
   font-weight: 500;
@@ -40,7 +50,9 @@
 }
 
 .card__duration {
+  box-sizing: border-box;
   margin: 0;
+  align-self: flex-start;
   background-color: #f9f9f9;
   border: solid 1px #f9f9f9;
   border-radius: 3px;

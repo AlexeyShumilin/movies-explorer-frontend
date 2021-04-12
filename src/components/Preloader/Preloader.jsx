@@ -1,9 +1,9 @@
 import React from "react";
 import "./Preloader.css";
 
-function Preloader() {
+function Preloader({ isPreloaderOpen }) {
   return (
-    <div className="preloader">
+    <div className={`preloader ${isPreloaderOpen}`}>
       <div className="preloader__container">
         <span className="preloader__round" />
       </div>
