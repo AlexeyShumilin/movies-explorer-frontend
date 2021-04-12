@@ -28,7 +28,7 @@ function App() {
       MainApi.getInfo()
         .then((userInfo) => {
           if (userInfo) {
-            setCurrentUser(userInfo.data);
+            setCurrentUser(userInfo);
             setIsLogin(true);
           }
         })

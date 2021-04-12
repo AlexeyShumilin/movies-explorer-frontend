@@ -34,7 +34,8 @@ function Profile({
         <div className="profile__container">
           <h1 className="profile__title">
             Привет,
-            {currentUser && currentUser.name}!
+            {currentUser && currentUser.name}
+            !
           </h1>
           <form
             noValidate

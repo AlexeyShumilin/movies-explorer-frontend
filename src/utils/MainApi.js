@@ -106,11 +106,10 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  // baseUrl: 'https://api',
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://api.shdiplom.nomoredomains.icu",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `${localStorage.getItem("jwt")}`,
+    Authorization: `Bearer ${localStorage.getItem("jwt")}`,
   },
 });
 

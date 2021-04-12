@@ -4,7 +4,6 @@ class MoviesApi {
     this._headers = headers;
   }
 
-  // Получить фильмы
   getMovies() {
     return fetch(`${this._baseUrl}`, {
       headers: this._headers,

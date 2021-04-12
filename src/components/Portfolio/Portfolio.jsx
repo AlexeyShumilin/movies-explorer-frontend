@@ -9,7 +9,7 @@ function Portfolio() {
         <li className="portfolio__project">
           <a
             className="portfolio__link"
-            href="https://github.com/MaksimPozharskiy/how-to-learn"
+            href="https://github.com/AlexeyShumilin/howtolearn"
             target="_blank"
             rel="noreferrer"
           >
@@ -32,7 +32,7 @@ function Portfolio() {
         <li className="portfolio__project">
           <a
             className="portfolio__link"
-            href="https://github.com/MaksimPozharskiy/russian-travel"
+            href="https://github.com/AlexeyShumilin/russian-travel"
             target="_blank"
             rel="noreferrer"
           >
@@ -55,7 +55,7 @@ function Portfolio() {
         <li className="portfolio__project">
           <a
             className="portfolio__link"
-            href="https://github.com/MaksimPozharskiy/react-mesto-api-full"
+            href="https://github.com/AlexeyShumilin/react-mesto-api-full"
             target="_blank"
             rel="noreferrer"
           >

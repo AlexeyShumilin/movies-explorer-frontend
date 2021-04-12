@@ -1,7 +1,7 @@
 movies-explorer-frontend
 
-Фронтенд дипломного проекта Яндекс Практикум
+Фронтенд дипломного проекта Yandex Praktikum
 
 Запуск проекта - npm run start
 
-Ссылка - 
+Ссылка - http://shdiplom.nomoredomains.icu/

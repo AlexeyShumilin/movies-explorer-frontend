@@ -8,12 +8,16 @@ import MoviesApi from "../../utils/MoviesApi";
 import MainApi from "../../utils/MainApi";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import {
+  screenCoefficient,
+  screenSizeDefinition,
+} from "../../utils/ScreenDefinition";
 
 function Movies({ isLogin }) {
   const { pathname } = useLocation();
-  const [movies, setMoviesList] = React.useState([]); // Стейт с найденными по ключевому слову фильмами
-  const [renderedFilms, setRenderedFilms] = React.useState([]); // Отрисованные карточки
-  const [countClickMoreFilms, setCountClickMoreFilms] = React.useState(1); // Счетчик нажатий кнопки "еще"
+  const [movies, setMoviesList] = React.useState([]); //
+  const [renderedFilms, setRenderedFilms] = React.useState([]);
+  const [countClickMoreFilms, setCountClickMoreFilms] = React.useState(1);
   const [searchValue, setSearchValue] = React.useState("");
   const [inputError, setInputError] = React.useState("");
   const [visibilityMoviesList, setVisibilityMoviesList] = React.useState("");
@@ -23,10 +27,6 @@ function Movies({ isLogin }) {
     "movies__button_hidden"
   );
   const [isShortFilms, setIsShortFilms] = React.useState(false);
-  import {
-    screenSizeDefinition,
-    screenCoefficient,
-  } from "../../utils/ScreenDefinition";
 
   React.useEffect(() => {
     MainApi.getSavedMovies()
@@ -111,11 +111,9 @@ function Movies({ isLogin }) {
       setInputError("Нужно ввести ключевое слово");
       return;
     }
-
     setIsPreloaderOpen("preloader_active");
     setVisibilityMoviesList("");
     if (pathname === "/movies") {
-      // Если в localStorage нет фильмов, запросить их
       if (!localStorage.getItem("moviesList")) {
         MoviesApi.getMovies()
           .then((moviesList) => {
