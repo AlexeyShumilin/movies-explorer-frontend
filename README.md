@@ -6,7 +6,7 @@ Movies Explorer is a service where you can find movies on demand and save them i
 The repository contains the frontend application.
 
 
-## Stack
+## Stack:
 React 
 JavaScript  
 HTML  
@@ -18,17 +18,17 @@ API
 ## Functionality:
 
 asynchronous requests to third-party and native API;  
-protection of routes by authorization;  
-storing a token in cookies; 
-error processing; 
-the number of displayed cards depends on the device screen width; 
-form validation;  
-authorized and unauthorized states;   
-User registration and authorization;  
-Search for movies by keyword; 
-Filtering short films with a check-box; 
-Save movies to favorites; 
-Update profile data;  
+protection of routes by authorization;    
+storing a token in cookies;   
+error processing;   
+the number of displayed cards depends on the device screen width;   
+form validation;    
+authorized and unauthorized s tates;     
+User registration and authorization;    
+Search for movies by keyword;   
+Filtering short films with a check-box;   
+Save movies to favorites;   
+Update profile data;    
 
 ## Available Scripts
 
